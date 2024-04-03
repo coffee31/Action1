@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5629707074868997115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2601837068616012723}
+  - component: {fileID: 1531340489340618095}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2601837068616012723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629707074868997115}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531340489340618095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629707074868997115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac1282f6a132404a88bdb6a2cf21902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDB:
+  - itemID: 0
+    itemtype: 0
+    itemClass: 0
+    ItemName: Sword
+    Image: {fileID: 21300000, guid: 5674d4404f826414faa14430d3df6268, type: 3}
+    damage: 3
+  - itemID: 1
+    itemtype: 0
+    itemClass: 1
+    ItemName: Shield
+    Image: {fileID: 21300000, guid: d542206e47c1942f1b92ec4a55512a25, type: 3}
+    damage: 0
+  - itemID: 2
+    itemtype: 0
+    itemClass: 2
+    ItemName: Shoes
+    Image: {fileID: 21300000, guid: 7652c06b66a3b4d58a35b5c5aa8f8456, type: 3}
+    damage: 0
+  - itemID: 3
+    itemtype: 0
+    itemClass: 0
+    ItemName: Sword2
+    Image: {fileID: 21300000, guid: 7449258d40fcb4175bfe520402fb5324, type: 3}
+    damage: 10
+  - itemID: 4
+    itemtype: 0
+    itemClass: 1
+    ItemName: Shied2
+    Image: {fileID: 21300000, guid: 863d316d976504fc5a3734b33e10c55e, type: 3}
+    damage: 0
+  - itemID: 5
+    itemtype: 0
+    itemClass: 2
+    ItemName: Shoes2
+    Image: {fileID: 21300000, guid: 140398e933b9d400489aad46fc2f82ca, type: 3}
+    damage: 0
+  - itemID: 9999
+    itemtype: 3
+    itemClass: 3
+    ItemName: None
+    Image: {fileID: 21300000, guid: 67d74fe0bc2ff4f04bb9d4f9e1d63c02, type: 3}
+    damage: 0
