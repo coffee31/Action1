@@ -24,8 +24,8 @@ public class LoadingSet : MonoBehaviour
 
         if (loadedPlayerData != null)
         {
-            Inventory.Instance.items = loadedPlayerData.items;
-            Inventory.Instance.SlotCnt = loadedPlayerData.SlotCnt;
+            Inventory.instance.items = loadedPlayerData.items;
+            Inventory.instance.SlotCnt = loadedPlayerData.SlotCnt;
 
             Inventory.weaponON = loadedPlayerData.weaponON;
             Inventory.ShieldON = loadedPlayerData.ShieldON;

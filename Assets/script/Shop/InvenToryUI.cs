@@ -30,7 +30,7 @@ public class InvenToryUI : MonoBehaviour
 
     void Start()
     {
-        inven = Inventory.Instance;
+        inven = Inventory.instance;
         InventoryUI.SetActive(ActiveInven);
         slots = slotHolder.GetComponentsInChildren<Slot>();
         Swordslots = SwordHolder.GetComponentsInChildren<ShopSlot>();

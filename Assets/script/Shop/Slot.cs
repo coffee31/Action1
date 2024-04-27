@@ -47,10 +47,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         if (Inventory.IsShopMode)
         {
-            if (slotNum >= 0 && slotNum < Inventory.Instance.items.Count)
+            if (slotNum >= 0 && slotNum < Inventory.instance.items.Count)
             {
                 player.Gold += (int)(item.Cost * 0.8f);
-                Inventory.Instance.RemoveItem(slotNum);
+                Inventory.instance.RemoveItem(slotNum);
                 GameDataManager.Instance.InvenText.GetComponent<TMP_Text>().text = "판매했습니다. 0_0";
                 GameDataManager.Instance.InvenText.SetActive(true);
                 StopCoroutine(TextOFF());
@@ -63,7 +63,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            if (slotNum >= 0 && slotNum < Inventory.Instance.items.Count)
+            if (slotNum >= 0 && slotNum < Inventory.instance.items.Count)
             {
                 EquipON();
             }
@@ -198,7 +198,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                     break;
             }
         }
-        Inventory.Instance.RemoveItem(slotNum);
+        Inventory.instance.RemoveItem(slotNum);
     }
 
     IEnumerator TextOFF()

@@ -20,7 +20,7 @@ public class ShopSlot : MonoBehaviour, IPointerClickHandler
     //인벤토리 슬롯과 동일하게 UI 업데이트함
     private void Start()
     {
-        inven = Inventory.Instance;
+        inven = Inventory.instance;
         player = FindObjectOfType<Player>();
         UpdateSlotUI();
     }

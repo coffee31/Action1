@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
+using static UnityEditor.Progress;
 
 
 public class PlayerData
@@ -153,6 +154,7 @@ public class JsonData : MonoBehaviour
             SetEquippedItem(loadedPlayerData.equippedWeapon);
             SetEquippedItem2(loadedPlayerData.equippedShield);
             SetEquippedItem3(loadedPlayerData.equippedShoes);
+
 
             if (!string.IsNullOrEmpty(loadedPlayerData.equippedWeaponImage))
             {

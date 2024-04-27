@@ -54,8 +54,8 @@ public class GameDataManager : MonoBehaviour
                 // 씬에 싱글톤 오브젝트가 없으면 생성합니다.
                 if (instance == null)
                 {
-                    GameObject singletonObject = new GameObject(typeof(GameDataManager).Name);
-                    instance = singletonObject.AddComponent<GameDataManager>();
+                    GameObject GamaDataSingle = new GameObject(typeof(GameDataManager).Name);
+                    instance = GamaDataSingle.AddComponent<GameDataManager>();
                 }
             }
             return instance;

@@ -41,7 +41,7 @@ public class EquipSlot : MonoBehaviour, IPointerClickHandler
             // 해제된 아이템 정보 초기화
             Debug.Log("아이템 해제: " + equippedItem.ItemName);
 
-            Inventory.Instance.Additem(equippedItem);
+            Inventory.instance.Additem(equippedItem);
             player.DMG -= equippedItem.damage;
             player.DEF -= equippedItem.Def;
             player.Speed -= equippedItem.Speed;

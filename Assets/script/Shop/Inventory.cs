@@ -7,10 +7,27 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance;
+    private static Inventory Instance;
+    public static Inventory instance
+    {
+        get
+        {
+            if (Instance == null)
+            {
+                Instance = FindObjectOfType<Inventory>(); // ΩÃ±€≈Ê ≈Ωªˆ
+
+                if (Instance == null) // null¿Ã∏È ΩÃ±€≈Ê ª˝º∫
+                {
+                    GameObject InvenSingle = new GameObject(typeof(Inventory).Name);
+                    Instance = InvenSingle.AddComponent<Inventory>();
+                }
+            }
+            return Instance;
+        }
+    }
+
     public InvenToryUI invenui;
     public int MaxSlotcount; //¿Œ∫•≈‰∏Æ √÷¥Î ¿˙¿Â ∞°¥…«— ΩΩ∑‘
-    
 
     public static bool IsShopMode = false;
 
@@ -20,9 +37,19 @@ public class Inventory : MonoBehaviour
     public static bool ShieldON = false;
     public static bool ShoesON = false;
 
+
+
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this; 
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     //ΩΩ∑‘ ƒ´øÓ≈Õ ¡ı∞°
