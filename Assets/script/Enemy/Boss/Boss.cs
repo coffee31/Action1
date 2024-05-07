@@ -11,4 +11,7 @@ public class Boss : MonoBehaviour
     {
         gameObject.transform.position = BossPos.transform.position;
     }
+
+
+
 }
