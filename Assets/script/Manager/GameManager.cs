@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public static int Diamond = 0;
     public static bool SaveON = false;
+    public bool MoveStageON = false;
 
     public static GameManager Instance
     {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         SaveON = false;
+        MoveStageON = false;
         if (instance == null)
         {
             instance = this;

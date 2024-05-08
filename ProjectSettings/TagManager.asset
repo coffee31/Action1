@@ -21,6 +21,7 @@ TagManager:
   - BuyText
   - SellText
   - EquipText
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -33,10 +34,10 @@ TagManager:
   - Dead
   - EnemyBullet
   - Player
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - House
+  - Wall
+  - EnvironmentObject
   - 
   - 
   - 

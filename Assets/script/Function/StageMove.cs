@@ -9,20 +9,19 @@ public class StageMove : MonoBehaviour
     [SerializeField] GameObject Text;
     [SerializeField] SoundManager SoundManager;
     float Timer;
-    bool MoveStageON;
 
     private void Start()
     {
         Timer = 4.0f;
-        MoveStageON = false;
+
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player") && !MoveStageON)
+        if(other.gameObject.CompareTag("Player") && !GameManager.Instance.MoveStageON)
         {
-            MoveStageON = true;
+            GameManager.Instance.MoveStageON = true;
             StartCoroutine(Move(other.gameObject));
         }
     }
@@ -48,7 +47,7 @@ public class StageMove : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SoundManager.SoundChange();
         GameDataManager.Instance.GameStart = true;
-        MoveStageON = false;
+        GameManager.Instance.MoveStageON = false;
         Timer = 4.0f;
 
     }

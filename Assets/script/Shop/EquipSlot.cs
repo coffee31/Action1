@@ -50,7 +50,7 @@ public class EquipSlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(equippedItem != null)
+        if(equippedItem != null && Inventory.instance.SlotCnt < 30)
         {
             switch(equippedItem.itemClass)
             {
@@ -73,7 +73,7 @@ public class EquipSlot : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.Log("현재 장착된 아이템이 없습니다.");
+            Debug.Log("아이템을 해제할 수 없습니다.");
         }
     }
 }

@@ -91,9 +91,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                     
                     if (slot.CompareTag("weapon"))
                     {
-                        slot.UpdateSlotUI(item);
-                        Inventory.weaponON = true;
-
                         if (slot.equippedItem != null && slot.equippedItem.itemID == item.itemID)
                         {
                             GameDataManager.Instance.EquipText.GetComponent<TMP_Text>().text = "동일한 장비를 장착중입니다.";
@@ -106,8 +103,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                         // 다른 아이템 ID인 경우 기존 아이템 능력치 해제
                         if (slot.equippedItem != null && slot.equippedItem.itemID != item.itemID)
                         {
-                            slot.UnequipItem();
-                            Inventory.weaponON = false;
+                            // 인벤토리 슬롯의 개수가 30 미만인 경우에만 다른 아이템 해제
+                            if (Inventory.instance.SlotCnt < 30)
+                            {
+                                slot.UnequipItem();
+                                Inventory.weaponON = false;
+                            }
+                            else
+                            {
+                                // 슬롯 개수가 30개 이상인 경우 메시지를 표시하거나 처리할 수 있습니다.
+                                Debug.Log("인벤토리 슬롯이 가득 찼습니다.");
+                                return;
+                            }
                         }
 
                         // 새로운 아이템 장착 및 능력치 적용
@@ -126,9 +133,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
                     if (slot.CompareTag("shield"))
                     {
-                        slot.UpdateSlotUI(item);
-                        Inventory.ShieldON = true;
-
                         if (slot.equippedItem != null && slot.equippedItem.itemID == item.itemID)
                         {
                             GameDataManager.Instance.EquipText.GetComponent<TMP_Text>().text = "동일한 장비를 장착중입니다.";
@@ -138,12 +142,20 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                             return;
                         }
 
-
-                        // 다른 아이템 ID인 경우 기존 아이템 능력치 해제
                         if (slot.equippedItem != null && slot.equippedItem.itemID != item.itemID)
                         {
-                            slot.UnequipItem();
-                            Inventory.ShieldON = false;
+                            // 인벤토리 슬롯의 개수가 30 미만인 경우에만 다른 아이템 해제
+                            if (Inventory.instance.SlotCnt < 30)
+                            {
+                                slot.UnequipItem();
+                                Inventory.ShieldON = false;
+                            }
+                            else
+                            {
+                                // 슬롯 개수가 30개 이상인 경우 메시지를 표시하거나 처리할 수 있습니다.
+                                Debug.Log("인벤토리 슬롯이 가득 찼습니다.");
+                                return;
+                            }
                         }
 
                         // 새로운 아이템 장착 및 능력치 적용
@@ -162,9 +174,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
                     if (slot.CompareTag("shoes"))
                     {
-                        slot.UpdateSlotUI(item);
-                        Inventory.ShoesON = true;
-
                         if (slot.equippedItem != null && slot.equippedItem.itemID == item.itemID)
                         {
                             GameDataManager.Instance.EquipText.GetComponent<TMP_Text>().text = "동일한 장비를 장착중입니다.";
@@ -177,8 +186,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                         // 다른 아이템 ID인 경우 기존 아이템 능력치 해제
                         if (slot.equippedItem != null && slot.equippedItem.itemID != item.itemID)
                         {
-                            slot.UnequipItem();
-                            Inventory.ShoesON = false;
+                            // 인벤토리 슬롯의 개수가 30 미만인 경우에만 다른 아이템 해제
+                            if (Inventory.instance.SlotCnt < 30)
+                            {
+                                slot.UnequipItem();
+                                Inventory.ShoesON = false;
+                            }
+                            else
+                            {
+                                // 슬롯 개수가 30개 이상인 경우 메시지를 표시하거나 처리할 수 있습니다.
+                                Debug.Log("인벤토리 슬롯이 가득 찼습니다.");
+                                return;
+                            }
                         }
 
                         // 새로운 아이템 장착 및 능력치 적용

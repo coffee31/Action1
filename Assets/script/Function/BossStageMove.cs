@@ -12,20 +12,18 @@ public class BossStageMove : MonoBehaviour
     [SerializeField] GameObject BossInfo;
 
     float Timer;
-    bool MoveStageON;
 
     private void Start()
     {
         Timer = 4.0f;
-        MoveStageON = false;
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !MoveStageON)
+        if (other.gameObject.CompareTag("Player") && !GameManager.Instance.MoveStageON)
         {
-            MoveStageON = true;
+            GameManager.Instance.MoveStageON = true;
             StartCoroutine(Move(other.gameObject));
         }
     }
@@ -53,7 +51,7 @@ public class BossStageMove : MonoBehaviour
         BossInfo.SetActive(true);
         SoundManager.SoundChange3();
         GameDataManager.Instance.BossStart = true;
-        MoveStageON = false;
+        GameManager.Instance.MoveStageON = false;
         Timer = 4.0f;
         StartCoroutine(TextOFF());
     }

@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     RaycastHit Hit;
 
 
+    //slope
+    public float MaxSlopeAngle;
+    private RaycastHit slopeHit;
+
 
     [SerializeField] SkillUI skillUI;
     [SerializeField] MainUI mainUI;
@@ -40,7 +44,8 @@ public class Player : MonoBehaviour
     private int level;
     private float max_exp;
     private float cur_exp;
-    
+
+    public int BonusDMG;
 
 
 
@@ -149,6 +154,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        BonusDMG = 0;
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         Stats();
@@ -199,6 +205,24 @@ public class Player : MonoBehaviour
             Moving();
         }
         rigid.angularVelocity = Vector3.zero;
+        velocityYLimit();
+
+    }
+
+    void velocityYLimit()
+    {
+        // 현재 Rigidbody의 속도 가져오기
+        Vector3 velocity = rigid.velocity;
+
+        // 수직 속도가 최대 수직 속도를 초과하는지 확인
+        if (velocity.y > 5)
+        {
+            // 수직 속도를 최대 수직 속도로 제한
+            velocity.y = 5;
+        }
+
+        // 제한된 속도로 Rigidbody의 속도 설정
+        rigid.velocity = velocity;
     }
 
     void Stats()
@@ -241,12 +265,31 @@ public class Player : MonoBehaviour
         rigid.velocity = new Vector3(x, rigid.velocity.y, z);
         animator.SetBool("IsWalk", DirMove != Vector3.zero);
 
+        Vector3 gravity = OnSlope() ? Vector3.zero : Vector3.down * 40f * Mathf.Abs(rigid.velocity.y);
+        if (OnSlope())
+        {
+            if(rigid.velocity.y > 0)
+            {
+                rigid.AddForce(GetSlop(-DirMove) * Speed * 20f, ForceMode.Force);
+                rigid.AddForce(gravity, ForceMode.Force);
+                rigid.velocity = GetSlop(DirMove) * Speed + gravity;
+
+            }
+            else
+            {
+                rigid.AddForce(GetSlop(-DirMove) * Speed * 20f, ForceMode.Force);
+                rigid.AddForce(gravity, ForceMode.Force);
+                rigid.velocity = GetSlop(DirMove) * Speed + gravity;
+            }
+        }
+
         //회전 관련
         if (DirMove != Vector3.zero)
         {
             Quaternion Rotation = Quaternion.LookRotation(DirMove);
             rigid.rotation = Quaternion.Lerp(rigid.rotation, Rotation, 7 * Time.fixedDeltaTime);
         }
+
     }
     void Running()
     {
@@ -451,4 +494,22 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         LevelUpEffect.SetActive(false);
     }
+
+    public bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 0.1f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle != 0f && angle < 45 && slopeHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
+        }
+        return false;
+    }
+
+    Vector3 GetSlop(Vector3 dir)
+    {
+        return Vector3.ProjectOnPlane(dir, slopeHit.normal).normalized;
+    }
+
+    // Onslope상태에서는 점프 못하게
+    //
 }

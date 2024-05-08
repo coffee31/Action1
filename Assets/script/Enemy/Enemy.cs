@@ -434,7 +434,7 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "Melee" && !DamageON && gameObject.layer == 7)
         {
-            CurHP -= player.DMG;
+            CurHP -= player.DMG + player.BonusDMG;
             Vector3 KnockBack = transform.position - other.transform.position;
             StartCoroutine(Damage(KnockBack));
         }
@@ -532,10 +532,6 @@ public class Enemy : MonoBehaviour
                 GameDataManager.Instance.GameStage++;
                 GameDataManager.Instance.Respawn();
             }
-                
-
-
-
         }
 
         void EXPUP()

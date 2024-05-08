@@ -73,9 +73,9 @@ public class Weapon : MonoBehaviour
     IEnumerator ChainBonus(int Bonus, float Wait, float Wait2)
     {
         yield return new WaitForSeconds(Wait);
-        player.DMG += Bonus;
+        player.BonusDMG += Bonus;
         yield return new WaitForSeconds(Wait2);
-        player.DMG -= Bonus;
+        player.BonusDMG -= Bonus;
     }
 
 }

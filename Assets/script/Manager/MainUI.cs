@@ -48,7 +48,7 @@ public class MainUI : MonoBehaviour
 
     void updateList()
     {
-        text_atk.text = "ATK : " + player.DMG;
+        text_atk.text = "ATK : " + (player.DMG + player.BonusDMG);
         text_def.text = "DEF : " + player.DEF;
         text_speed.text = "SPEED : " + player.Speed;
         if (Input.GetKeyDown(KeyCode.U))
