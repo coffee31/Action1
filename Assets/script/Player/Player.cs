@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            Cur_EXP += 10;
+            Cur_EXP += 50;
             GameManager.Diamond++;
             mainUI.EXPslider();
             GameDataManager.Instance.BossCount++;
