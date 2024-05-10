@@ -20,4 +20,4 @@ Unity ver - 2022.3.8f1
 
 Youtube : https://youtu.be/xAa2LeJiKYU
 
-기술서 : https://drive.google.com/file/d/1xNJmTPPj1rFFhLTaeQ7IwlyjnKc8qeD8/view?usp=drive_link
+기술서 : https://drive.google.com/file/d/1EJAwCdJT8dMOjtWB4EjntxO_LKDUqSrx/view?usp=sharing
