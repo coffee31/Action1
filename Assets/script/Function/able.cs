@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class able : MonoBehaviour
 {
-    public float targetAlpha = 80f; // 목표 투명도 값
+    public float targetAlpha;
 
     public LayerMask raycastMask; // 레이캐스트할 레이어 마스크
     public float maxRaycastDistance = 30f; // 레이캐스트의 최대 거리
@@ -11,7 +12,7 @@ public class able : MonoBehaviour
 
     void Start()
     {
-        targetAlpha = 110f;
+        targetAlpha = 80f;// 목표 투명도 값
         maxRaycastDistance = 30f;
 
         // "Player" 태그가 설정된 오브젝트를 찾아 플레이어 변수에 할당합니다.
@@ -46,7 +47,7 @@ public class able : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxRaycastDistance, raycastMask))
         {
             // 플레이어와의 충돌이 아닌 경우에만 실행됩니다.
-            if (!hit.collider.CompareTag("Player"))
+            if (!hit.collider.CompareTag("Player") && !hit.collider.CompareTag("NoneRay"))
             {
                 Debug.Log("플레이어 이외의 오브젝트를 감지했습니다.");
                 Renderer[] renderers = hit.collider.GetComponentsInChildren<Renderer>();
@@ -56,7 +57,7 @@ public class able : MonoBehaviour
                     if (renderer != null && renderer.material != null)
                     {
                         // Rendering Mode를 Transparent로 변경
-                        renderer.material.SetFloat("_Mode", 3); // 0: Opaque, 1: Cutout, 2: Fade, 3: Transparent
+                        renderer.material.SetFloat("_Mode", 4); // 0: Opaque, 1: Cutout, 2: Fade, 3: Transparent
                         renderer.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                         renderer.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                         renderer.material.SetInt("_ZWrite", 0);

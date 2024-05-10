@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
 
 
 
+
     //Property
     public int DMG
     {
@@ -195,6 +196,13 @@ public class Player : MonoBehaviour
             Cur_EXP += 10;
             GameManager.Diamond++;
             mainUI.EXPslider();
+            GameDataManager.Instance.BossCount++;
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            CurHP -= 20;
+            mainUI.HPslider();
         }
     }
 

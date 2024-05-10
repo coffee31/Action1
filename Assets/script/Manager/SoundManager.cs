@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
     }
     public void SoundChange()
     {
-        //Field
+        //Top
         BGMSource.Stop();
         BGMSource.clip = audioList[2];
         BGMSource.Play();
@@ -45,4 +45,14 @@ public class SoundManager : MonoBehaviour
         BGMSource.clip = audioList[1];
         BGMSource.Play();
     }
+
+
+    public void SoundChange4()
+    {
+        //Field
+        BGMSource.Stop();
+        BGMSource.clip = audioList[3];
+        BGMSource.Play();
+    }
+
 }

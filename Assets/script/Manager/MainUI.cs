@@ -19,10 +19,24 @@ public class MainUI : MonoBehaviour
     [SerializeField] TMP_Text text_def;
     [SerializeField] TMP_Text text_speed;
 
+
+    public delegate void SliderUpdate();
+    public SliderUpdate sliderList;
+
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
+        sliderList += HPslider;
+        sliderList += MPslider;
+        sliderList += EXPslider;
+    }
+
+
+    public void SliderRefresh()
+    {
+        sliderList.Invoke();
     }
 
 

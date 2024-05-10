@@ -40,8 +40,6 @@ public class GameDataManager : MonoBehaviour
    
     public JsonData jsonData;
 
-
-
     public static GameDataManager Instance
     {
         get
@@ -100,6 +98,8 @@ public class GameDataManager : MonoBehaviour
 
 
     }
+
+
 
     IEnumerator posmove()
     {

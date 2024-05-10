@@ -99,17 +99,17 @@ public class Enemy : MonoBehaviour
         switch (EnemyType)
         {
             case Type.A:
-                maxHP = 30 * GameDataManager.Instance.GameStage;
+                maxHP = 70 * GameDataManager.Instance.GameStage;
                 targetRadius = 10f;
                 targetRange = 2f;
                 break;
             case Type.B:
-                maxHP = 50 * GameDataManager.Instance.GameStage;
+                maxHP = 100 * GameDataManager.Instance.GameStage;
                 targetRadius = 10f;
                 targetRange = 4f;
                 break;
             case Type.C:
-                maxHP = 1500 * GameDataManager.Instance.GameStage;
+                maxHP = 2000 * GameDataManager.Instance.GameStage;
                 targetRadius = 12f;
                 targetRange = 8f;
                 break;
@@ -538,13 +538,13 @@ public class Enemy : MonoBehaviour
         {
             if (EnemyType == Type.A)
             {
-                player.Cur_EXP += 10 * GameDataManager.Instance.GameStage;
-                player.Gold += 30 * GameDataManager.Instance.GameStage;
+                player.Cur_EXP += 15 * GameDataManager.Instance.GameStage;
+                player.Gold += 50 * GameDataManager.Instance.GameStage;
             }
             else if (EnemyType == Type.B)
             {
                 player.Cur_EXP += 20 * GameDataManager.Instance.GameStage;
-                player.Gold += 50 * GameDataManager.Instance.GameStage;
+                player.Gold += 70 * GameDataManager.Instance.GameStage;
             }
             else if (EnemyType == Type.C)
             {

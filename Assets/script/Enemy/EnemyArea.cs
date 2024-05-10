@@ -17,10 +17,10 @@ public class EnemyArea : MonoBehaviour
     private void Awake()
     {
         if (enemy.EnemyType == Enemy.Type.A)
-            damage = 5;
+            damage = 10;
         else if (enemy.EnemyType == Enemy.Type.B)
-            damage = 8;
+            damage = 16;
         else if (enemy.EnemyType == Enemy.Type.C)
-            damage = 50;
+            damage = 70;
     }
 }

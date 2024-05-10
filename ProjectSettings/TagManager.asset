@@ -22,6 +22,7 @@ TagManager:
   - SellText
   - EquipText
   - Obstacle
+  - NoneRay
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - House
   - Wall
   - EnvironmentObject
-  - 
+  - Town1
   - 
   - 
   - 

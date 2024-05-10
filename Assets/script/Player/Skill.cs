@@ -153,7 +153,7 @@ public class Skill : MonoBehaviour
         }
         else if (SkillW)
         {
-            EffectW.transform.position = new Vector3(player.transform.position.x, 0.5f, player.transform.position.z);
+            EffectW.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);
             EffectW.transform.rotation = Quaternion.Euler(player.transform.rotation.eulerAngles.x + 90, player.transform.rotation.eulerAngles.y - 90, player.transform.rotation.eulerAngles.z);
             
             yield return new WaitForSeconds(1.4f);

@@ -23,7 +23,7 @@ public class SlimeMarble : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Player>().CurHP -= 30 * GameDataManager.Instance.GameStage;
+            other.gameObject.GetComponent<Player>().CurHP -= (35 * GameDataManager.Instance.GameStage) - other.gameObject.GetComponent<Player>().DEF;
             mainUI.HPslider();
         }
     }

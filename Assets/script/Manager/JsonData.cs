@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
-using static UnityEditor.Progress;
 
 
 public class PlayerData
