@@ -57,7 +57,8 @@ public class able : MonoBehaviour
                     if (renderer != null && renderer.material != null)
                     {
                         // Rendering Mode를 Transparent로 변경
-                        renderer.material.SetFloat("_Mode", 4); // 0: Opaque, 1: Cutout, 2: Fade, 3: Transparent
+
+                        renderer.material.SetFloat("_Mode", 3); // 0: Opaque, 1: Cutout, 2: Fade, 3: Transparent
                         renderer.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                         renderer.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                         renderer.material.SetInt("_ZWrite", 0);
@@ -67,7 +68,7 @@ public class able : MonoBehaviour
                         renderer.material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
 
 
-                        // 시작 시 투명도를 110으로 설정
+                        // 시작 시 투명도를 70으로 설정
                         if (renderer.material.shader.name == "Standard (Specular setup)")
                         {
                             Color color = renderer.material.color;
