@@ -12,7 +12,7 @@ Unity로 제작한 3D게임입니다.
 
 Unity ver - 2022.3.8f1
 
-제작 기간 : 4주
+제작 기간 : 4주 ~ ing
 
 장르 : 3D Action RPG
 
